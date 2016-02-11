@@ -1,13 +1,12 @@
 require 'rspec'
 require 'capybara'
 require 'capybara/dsl'
+require 'capybara/rspec'
 require 'capybara-webkit'
 require 'support/helper_methods'
 require 'support/constants'
 
-
-
-Capybara.default_driver = :webkit
+Capybara.javascript_driver = :webkit
 Capybara.app_host = URL_UNDER_TEST
 
 Capybara::Webkit.configure do |config|
