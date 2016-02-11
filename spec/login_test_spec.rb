@@ -1,8 +1,16 @@
 require 'spec_helper'
 
 feature 'Login' do
-  scenario "successfully" do
+  before :all do 
     login
-    expect(page).to have_css('.header-logged-in')
+  end
+
+  after :all do
+    clear_session 
+  end
+
+  scenario "successfully", js: true do
+    resolve_ajax
+    expect(page).to have_css('#QueryBar')
   end
 end
